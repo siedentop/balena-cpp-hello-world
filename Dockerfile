@@ -1,4 +1,4 @@
-FROM resin/%%RESIN_MACHINE_NAME%%-debian:stretch AS build
+FROM resin/raspberrypi3-debian:stretch AS build
 
 # Install build tools and remove apt-cache afterwards
 RUN apt-get -q update && apt-get install -yq --no-install-recommends \
@@ -14,12 +14,12 @@ COPY . /usr/src/app
 # Build our binary
 RUN g++ -o hello hello.cpp
 
-FROM resin/%%RESIN_MACHINE_NAME%%-debian:stretch
+#FROM resin/raspberrypi3-debian:stretch
 
-COPY --from=build /usr/src/app/hello hello
+#COPY --from=build /usr/src/app/hello hello
 
 #switch on systemd init system in container
-ENV INITSYSTEM on
+# ENV INITSYSTEM on
 
 # Run our binary on container startup
-CMD ./hello
+# CMD ./hello

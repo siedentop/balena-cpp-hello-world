@@ -1,4 +1,4 @@
-language: default
+language: ruby 
 
 services:
   - docker

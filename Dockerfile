@@ -1,5 +1,5 @@
-FROM resin/raspberrypi3-debian:stretch
-#FROM mitchallen/pi-cross-compile
+#FROM resin/raspberrypi3-debian:stretch
+FROM mitchallen/pi-cross-compile
 # FROM gcc:8.2
 
 # Install build tools and remove apt-cache afterwards
@@ -24,4 +24,4 @@ RUN g++ -o hello hello.cpp
 # ENV INITSYSTEM on
 
 # Run our binary on container startup
-# CMD ./hello
+CMD ./hello

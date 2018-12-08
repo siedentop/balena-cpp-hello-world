@@ -25,4 +25,4 @@ RUN ["/bin/bash", "-c", "make", "-f", "${BUILD_FOLDER}/Makefile"]
 # ENV INITSYSTEM on
 
 # Run our binary on container startup
-CMD ./bin/hello
+CMD ["/bin/bash", "-c", "file", "./bin/hello"]

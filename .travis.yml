@@ -1,4 +1,4 @@
-language: default 
+language: cpp
 
 services:
   - docker
@@ -7,4 +7,6 @@ before_install:
   - docker build -t me/image .
 
 script:
-  - docker run me/image
+  # One of those lines is necessary otherwise travis runs 'rake' by default.
+  - true
+  - echo "Success"

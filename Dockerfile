@@ -1,5 +1,5 @@
-FROM resin/raspberrypi3-debian:stretch
-#FROM mitchallen/pi-cross-compile
+# FROM resin/raspberrypi3-debian:stretch
+FROM mitchallen/pi-cross-compile
 # FROM gcc:8.2
 
 # Install build tools and remove apt-cache afterwards
@@ -11,11 +11,11 @@ WORKDIR /build
 
 # Copy all the app source into docker context
 COPY . /build/src
-#COPY Makefile /build
+COPY Makefile /build
 
 # Build our binary
-#RUN ["/bin/bash", "-c", "make", "-f", "${BUILD_FOLDER}/Makefile"]
-RUN ["/bin/bash", "-c", "g++", "-o", "hello", "/build/src/hello.cpp"]
+RUN ["/bin/bash", "-c", "make", "-f", "${BUILD_FOLDER}/Makefile"]
+
 
 #FROM resin/raspberrypi3-debian:stretch
 
@@ -25,4 +25,4 @@ RUN ["/bin/bash", "-c", "g++", "-o", "hello", "/build/src/hello.cpp"]
 # ENV INITSYSTEM on
 
 # Run our binary on container startup
-#CMD ["/bin/bash", "-c", "file", "./bin/hello"]
+CMD ["/bin/bash", "-c", "file", "./bin/hello"]
